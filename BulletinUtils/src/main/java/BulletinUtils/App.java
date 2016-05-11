@@ -7,7 +7,16 @@ package BulletinUtils;
 public class App 
 {
     public static void main( String[] args )
-    {
-        System.out.println( "Hello World!" );
+    {        
+        if (args == null || args.length == 0) {
+            CommandLineAnalizer.printUsage();
+            System.exit(0);
+        }
+        CommandLineAnalizer cm = new CommandLineAnalizer(args);
+        if (cm.isPrintUsage()) {
+            CommandLineAnalizer.printUsage();
+            System.exit(0);
+        }
+        
     }
 }
